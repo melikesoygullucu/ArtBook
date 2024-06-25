@@ -15,6 +15,7 @@
 		4DFACFAE2C2AAD5C007C5D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DFACFAD2C2AAD5C007C5D2D /* Assets.xcassets */; };
 		4DFACFB12C2AAD5C007C5D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFACFAF2C2AAD5C007C5D2D /* LaunchScreen.storyboard */; };
 		4DFACFB92C2AB503007C5D2D /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFACFB82C2AB503007C5D2D /* DetailsVC.swift */; };
+		4DFACFBB2C2AD67B007C5D2D /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFACFBA2C2AD67A007C5D2D /* select.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4DFACFB02C2AAD5C007C5D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DFACFB22C2AAD5C007C5D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DFACFB82C2AB503007C5D2D /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		4DFACFBA2C2AD67A007C5D2D /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = select.png; path = ../../../Downloads/select.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				4DFACFAF2C2AAD5C007C5D2D /* LaunchScreen.storyboard */,
 				4DFACFB22C2AAD5C007C5D2D /* Info.plist */,
 				4DFACFAA2C2AAD5B007C5D2D /* ArtNoteBook.xcdatamodeld */,
+				4DFACFBA2C2AD67A007C5D2D /* select.png */,
 			);
 			path = ArtNoteBook;
 			sourceTree = "<group>";
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFACFB12C2AAD5C007C5D2D /* LaunchScreen.storyboard in Resources */,
+				4DFACFBB2C2AD67B007C5D2D /* select.png in Resources */,
 				4DFACFAE2C2AAD5C007C5D2D /* Assets.xcassets in Resources */,
 				4DFACFA92C2AAD5A007C5D2D /* Main.storyboard in Resources */,
 			);
