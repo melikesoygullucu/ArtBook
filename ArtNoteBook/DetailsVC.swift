@@ -15,10 +15,56 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var artistTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
     
+    var chosenPainting = ""
+    var chosenPaintingID : UUID?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        if chosenPainting != "" {
+            // Core Data
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Paintings")
+            let idString = chosenPaintingID?.uuidString
+            fetchRequest.predicate = NSPredicate(format: "id = %@", idString!)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        
+                        if let name = result.value(forKey: "name") as? String {
+                            nameTextField.text = name
+                        }
+                        
+                        if let artist = result.value(forKey: "artist") as? String {
+                            artistTextField.text = artist
+                        }
+                        
+                        if let year = result.value(forKey: "year") as? Int {
+                            yearTextField.text = String(year)
+                        }
+                        
+                        if let imageData = result.value(forKey: "image") as? Data {
+                            let image = UIImage(data: imageData)
+                            imageView.image = image
+                        }
+                        
+                    }
+                }
+            } catch {
+                print("error")
+            }
+            
+        } else {
+            nameTextField.text = ""
+            artistTextField.text = ""
+            yearTextField.text = ""
+        }
+
         //Recognizers
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
@@ -67,6 +113,10 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }catch{
                 print("error")
         }
+        
+        // inform view controller for new datas
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newData"), object: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
